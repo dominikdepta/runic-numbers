@@ -23,7 +23,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="89.8406"
           y2="132.012"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(hundreds, [300]) && (
@@ -33,7 +33,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="91.0122"
           y2="89.5858"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(thousands, [4000, 5000]) && (
@@ -43,7 +43,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="47.0122"
           y2="89.1594"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(thousands, [3000]) && (
@@ -53,7 +53,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="44.8406"
           y2="131.586"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(ones, [4, 5]) && (
@@ -63,7 +63,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="91.0122"
           y2="2.15938"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(ones, [3]) && (
@@ -73,7 +73,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="90.8406"
           y2="44.5858"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(tens, [40, 50]) && (
@@ -83,7 +83,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="45.6604"
           y2="45.0122"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(tens, [30]) && (
@@ -93,7 +93,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="45.832"
           y2="2.58579"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(hundreds, [500, 700, 900]) && (
@@ -103,29 +103,29 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="93"
           y2="133"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(thousands, [1000, 5000, 7000, 9000]) && (
-        <line y1="133" x2="45" y2="133" stroke="black" stroke-width="4" />
+        <line y1="133" x2="45" y2="133" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(hundreds, [200, 800, 900]) && (
-        <line x1="48" y1="89" x2="93" y2="89" stroke="black" stroke-width="4" />
+        <line x1="48" y1="89" x2="93" y2="89" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(thousands, [2000, 8000, 9000]) && (
-        <line y1="89" x2="45" y2="89" stroke="black" stroke-width="4" />
+        <line y1="89" x2="45" y2="89" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(ones, [2, 8, 9]) && (
-        <line x1="48" y1="46" x2="93" y2="46" stroke="black" stroke-width="4" />
+        <line x1="48" y1="46" x2="93" y2="46" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(tens, [20, 80, 90]) && (
-        <line y1="46" x2="45" y2="46" stroke="black" stroke-width="4" />
+        <line y1="46" x2="45" y2="46" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(ones, [1, 5, 7, 9]) && (
-        <line x1="48" y1="2" x2="93" y2="2" stroke="black" stroke-width="4" />
+        <line x1="48" y1="2" x2="93" y2="2" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(tens, [10, 50, 70, 90]) && (
-        <line y1="2" x2="45" y2="2" stroke="black" stroke-width="4" />
+        <line y1="2" x2="45" y2="2" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(hundreds, [600, 700, 800, 900]) && (
         <line
@@ -134,7 +134,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="91"
           y2="135"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(ones, [6, 7, 8, 9]) && (
@@ -144,14 +144,14 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="91"
           y2="45"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(thousands, [6000, 7000, 8000, 9000]) && (
-        <line x1="2" y1="89" x2="2" y2="134" stroke="black" stroke-width="4" />
+        <line x1="2" y1="89" x2="2" y2="134" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(tens, [60, 70, 90, 90]) && (
-        <line x1="2" y1="2" x2="2" y2="47" stroke="black" stroke-width="4" />
+        <line x1="2" y1="2" x2="2" y2="47" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(0, [0]) && (
         <line
@@ -160,11 +160,11 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="47"
           y2="135"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
       {isNumberMatch(0, [0]) && (
-        <line x1="47" y1="45" x2="47" y2="90" stroke="black" stroke-width="4" />
+        <line x1="47" y1="45" x2="47" y2="90" stroke="black" strokeWidth="4" />
       )}
       {isNumberMatch(0, [0]) && (
         <line
@@ -173,7 +173,7 @@ export const Rune = ({ value, ref }: RuneProps) => {
           x2="47"
           y2="45"
           stroke="black"
-          stroke-width="4"
+          strokeWidth="4"
         />
       )}
     </svg>
