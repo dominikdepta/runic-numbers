@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build -- --base=${{ steps.deployment.outputs.page_url }}
+        run: npm run build -- --base=/runic-numbers # FIXME: replace with an env value
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
