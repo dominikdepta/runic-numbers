@@ -79,8 +79,8 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="bg-slate-950 h-screen w-full p-4 flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center w-full max-w-sm">
+    <div className="w-full h-screen p-4 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full h-full max-w-sm">
         <Rune ref={svgRef} value={value} className="mb-8" />
 
         <div className="flex flex-col md:flex-row gap-2 w-full mb-2">

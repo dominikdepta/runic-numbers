@@ -1,3 +1,4 @@
+import { cx } from "../../utils/cx";
 import { isNumberMatch } from "./functions";
 import { RuneProps } from "./types";
 
@@ -15,7 +16,7 @@ export const Rune = ({ value, ref, className }: RuneProps) => {
       viewBox="0 0 93 135"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={cx("shrink-0", className)}
     >
         {isNumberMatch(hundreds, [400, 500]) && (
           <line
