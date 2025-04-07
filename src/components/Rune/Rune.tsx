@@ -204,7 +204,7 @@ export const Rune = ({ value, ref, className }: RuneProps) => {
             strokeWidth="4"
           />
         )}
-        {isNumberMatch(tens, [60, 70, 90, 90]) && (
+        {isNumberMatch(tens, [60, 70, 80, 90, 90]) && (
           <line
             x1="2"
             y1="2"
