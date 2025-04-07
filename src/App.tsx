@@ -5,16 +5,17 @@ import { Input } from "./components/Input/Input";
 import { Rune } from "./components/Rune";
 import { randomRange } from "./utils/randomRange";
 import { saveBlob } from "./utils/saveBlob";
+import { RUNE_NUMBER_MAX, RUNE_NUMBER_MIN } from "./constants";
 
 export const App = () => {
   const svgRef = React.useRef<SVGSVGElement>(null);
-  const [inputValue, setInputValue] = React.useState(`${randomRange(0, 9999)}`);
+  const [inputValue, setInputValue] = React.useState(`${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
   const [hasError, setHasError] = React.useState(false);
 
   const value = React.useMemo(() => {
     const parsedValue = parseInt(inputValue, 10);
 
-    if (!isNaN(parsedValue) && parsedValue >= 0 && parsedValue <= 9999) {
+    if (!isNaN(parsedValue) && parsedValue >= RUNE_NUMBER_MIN && parsedValue <= RUNE_NUMBER_MAX) {
       return parsedValue;
     }
 
@@ -26,7 +27,7 @@ export const App = () => {
 
     const iid = setInterval(() => {
       count++;
-      setInputValue(`${randomRange(0, 9999)}`);
+      setInputValue(`${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
 
       if (count >= 10) {
         clearInterval(iid);
@@ -69,7 +70,7 @@ export const App = () => {
     setInputValue(inputValue);
     clearError();
 
-    if (isNaN(parsedValue) || parsedValue < 0 || parsedValue > 9999) {
+    if (isNaN(parsedValue) || parsedValue < RUNE_NUMBER_MIN || parsedValue > RUNE_NUMBER_MAX) {
       setHasError(true);
     }
   };
@@ -103,7 +104,7 @@ export const App = () => {
         </div>
 
         <span className="text-slate-400 text-xcs font-thin">
-          Type a number between 0 and 9999 to generate a rune.
+          Type a number between {RUNE_NUMBER_MIN} and {RUNE_NUMBER_MAX} to generate a rune.
         </span>
       </div>
     </div>
