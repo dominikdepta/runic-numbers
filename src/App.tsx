@@ -36,6 +36,12 @@ export const App = () => {
     return iid;
   };
 
+  const clearError = () => {
+    if (hasError) {
+      setHasError(false);
+    }
+  };
+
   const handleDownloadClick = () => {
     const svgElement = svgRef.current?.cloneNode(true) as SVGSVGElement;
 
@@ -53,6 +59,7 @@ export const App = () => {
 
   const handleRandomClick = () => {
     shuffle();
+    clearError();
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,10 +67,7 @@ export const App = () => {
     const parsedValue = parseInt(inputValue, 10);
 
     setInputValue(inputValue);
-
-    if (hasError) {
-      setHasError(false);
-    }
+    clearError();
 
     if (isNaN(parsedValue) || parsedValue < 0 || parsedValue > 9999) {
       setHasError(true);
