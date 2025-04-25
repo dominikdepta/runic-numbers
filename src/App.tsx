@@ -3,31 +3,30 @@ import React, { useEffect } from "react";
 import { Button } from "./components/Button/Button";
 import { Input } from "./components/Input/Input";
 import { Rune } from "./components/Rune";
-import { randomRange } from "./utils/randomRange";
-import { saveBlob } from "./utils/saveBlob";
 import { RUNE_NUMBER_MAX, RUNE_NUMBER_MIN } from "./constants";
+import { isRuneValueValid, randomRuneValue } from "./functions";
+import { saveBlob } from "./utils/saveBlob";
 
 export const App = () => {
   const svgRef = React.useRef<SVGSVGElement>(null);
-  const [inputValue, setInputValue] = React.useState(() => `${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
-  const [hasError, setHasError] = React.useState(false);
+  const [inputValue, setInputValue] = React.useState(randomRuneValue);
+
+  const parsedInputValue = React.useMemo(() => {
+    const parsedValue = Number(inputValue);
+
+    return isRuneValueValid(parsedValue) ? parsedValue : null;
+  }, [inputValue]);
 
   const runeValue = React.useMemo(() => {
-    const parsedValue = parseInt(inputValue, 10);
-
-    if (!isNaN(parsedValue) && parsedValue >= RUNE_NUMBER_MIN && parsedValue <= RUNE_NUMBER_MAX) {
-      return parsedValue;
-    }
-
-    return 0;
-  }, [inputValue]);
+    return parsedInputValue || 0;
+  }, [parsedInputValue]);
 
   const shuffle = () => {
     let count = 0;
 
     const iid = setInterval(() => {
       count++;
-      setInputValue(`${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
+      setInputValue(randomRuneValue());
 
       if (count >= 10) {
         clearInterval(iid);
@@ -35,12 +34,6 @@ export const App = () => {
     }, 25);
 
     return iid;
-  };
-
-  const clearError = () => {
-    if (hasError) {
-      setHasError(false);
-    }
   };
 
   const handleDownloadClick = () => {
@@ -60,19 +53,10 @@ export const App = () => {
 
   const handleRandomClick = () => {
     shuffle();
-    clearError();
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-    const parsedValue = parseInt(inputValue, 10);
-
-    setInputValue(inputValue);
-    clearError();
-
-    if (isNaN(parsedValue) || parsedValue < RUNE_NUMBER_MIN || parsedValue > RUNE_NUMBER_MAX) {
-      setHasError(true);
-    }
+    setInputValue(event.target.value);
   };
 
   useEffect(() => {
@@ -90,7 +74,7 @@ export const App = () => {
 
         <div className="flex flex-col md:flex-row gap-2 w-full mb-2">
           <Input
-            hasError={hasError}
+            hasError={!parsedInputValue}
             className="w-full"
             value={inputValue}
             onChange={handleInputChange}
@@ -104,7 +88,8 @@ export const App = () => {
         </div>
 
         <span className="text-slate-400 text-xcs font-thin">
-          Type a number between {RUNE_NUMBER_MIN} and {RUNE_NUMBER_MAX} to generate a rune.
+          Type a number between {RUNE_NUMBER_MIN} and {RUNE_NUMBER_MAX} to
+          generate a rune.
         </span>
       </div>
     </div>
