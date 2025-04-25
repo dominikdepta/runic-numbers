@@ -12,7 +12,7 @@ export const App = () => {
   const [inputValue, setInputValue] = React.useState(() => `${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
   const [hasError, setHasError] = React.useState(false);
 
-  const value = React.useMemo(() => {
+  const runeValue = React.useMemo(() => {
     const parsedValue = parseInt(inputValue, 10);
 
     if (!isNaN(parsedValue) && parsedValue >= RUNE_NUMBER_MIN && parsedValue <= RUNE_NUMBER_MAX) {
@@ -52,7 +52,7 @@ export const App = () => {
 
       saveBlob(
         new XMLSerializer().serializeToString(svgElement),
-        `${value}.svg`,
+        `${runeValue}.svg`,
         "image/svg+xml"
       );
     }
@@ -86,7 +86,7 @@ export const App = () => {
   return (
     <div className="w-full h-screen p-4 flex items-center justify-center">
       <div className="flex flex-col items-center justify-center w-full h-full max-w-sm">
-        <Rune ref={svgRef} value={value} className="mb-8" />
+        <Rune ref={svgRef} value={runeValue} className="mb-8" />
 
         <div className="flex flex-col md:flex-row gap-2 w-full mb-2">
           <Input
