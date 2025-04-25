@@ -9,7 +9,7 @@ import { RUNE_NUMBER_MAX, RUNE_NUMBER_MIN } from "./constants";
 
 export const App = () => {
   const svgRef = React.useRef<SVGSVGElement>(null);
-  const [inputValue, setInputValue] = React.useState(`${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
+  const [inputValue, setInputValue] = React.useState(() => `${randomRange(RUNE_NUMBER_MIN, RUNE_NUMBER_MAX)}`);
   const [hasError, setHasError] = React.useState(false);
 
   const value = React.useMemo(() => {
